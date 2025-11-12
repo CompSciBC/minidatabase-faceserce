@@ -94,7 +94,7 @@ struct Engine {
             if (rid >= 0 && rid < (int)heap.size() && !heap[rid].deleted)
                 out.push_back(&heap[rid]);
         });
-        cmpOut = idIndex.comparisons+1;
+        cmpOut = idIndex.comparisons;
         return out;
     }
 
