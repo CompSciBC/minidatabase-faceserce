@@ -39,7 +39,7 @@ struct Engine {
         string key = toLower(rec.last);
         auto vecPtr = lastIndex.find(key);
         if (!vecPtr)
-            lastIndex.insert(key, vector<int>{rid});
+            //lastIndex.insert(key, vector<int>{rid});
         else
             vecPtr->push_back(rid);
 
