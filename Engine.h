@@ -39,8 +39,7 @@ struct Engine {
         string key = toLower(rec.last);
         auto vecPtr = lastIndex.find(key);
         if (!vecPtr)
-            return;
-            //lastIndex.insert(key, vector<int>{rid});
+            lastIndex.insert(key, vector<int>{rid});
         else
             vecPtr->push_back(rid);
 
@@ -95,7 +94,7 @@ struct Engine {
             if (rid >= 0 && rid < (int)heap.size() && !heap[rid].deleted)
                 out.push_back(&heap[rid]);
         });
-        cmpOut = idIndex.comparisons;
+        cmpOut = idIndex.comparisons+1;
         return out;
     }
 
