@@ -29,7 +29,7 @@ struct Engine {
     // Returns the record ID (RID) in the heap.
     int insertRecord(const Record &recIn) {
         heap.push_back(recIn);
-        int hsize = heap.size()-1;
+        int hsize = (int)heap.size()-1;
         idIndex.insert(recIn.id, hsize);
 
         vector<int>* found = lastIndex.find(toLower(recIn.last));
@@ -69,11 +69,11 @@ struct Engine {
         vector<int>* vectorofindx = lastIndex.find(toLower(lastname));
 
         //delete from lastIndex
-        if (vectorofindx->size()==1) {
+        if ((int)vectorofindx->size()==1) {
             lastIndex.erase(lastname);
         }
         else {
-            for (int i = 0; i<vectorofindx->size(); i++) {
+            for (int i = 0; i<(int)vectorofindx->size(); i++) {
                 if ((*vectorofindx)[i] == *recordindx) {
                     (*vectorofindx)[i] = (*vectorofindx)[vectorofindx->size()-1];
                     vectorofindx->pop_back();
@@ -134,7 +134,7 @@ struct Engine {
             
             if (k.compare(0, low.length(), low)==0) {
                 //cmpOut++;
-                for (int i=0; i<v.size(); i++) {
+                for (int i=0; i<(int)v.size(); i++) {
                     output.push_back(&heap[v[i]]);
                 }
             }
